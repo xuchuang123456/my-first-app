@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Cinzel } from 'next/font/google';
+// import { Cinzel } from 'next/font/google';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
@@ -9,11 +9,11 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 
-const cinzel = Cinzel({ 
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-});
+// const cinzel = Cinzel({ 
+//   subsets: ['latin'],
+//   weight: ['400', '700'],
+//   display: 'swap',
+// });
 
 export default function ChristmasTree() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,8 +23,8 @@ export default function ChristmasTree() {
   const [isLoading, setIsLoading] = useState(true);
   const [controlsHidden, setControlsHidden] = useState(false);
 
-  // 获取 basePath
-  const basePath = process.env.__NEXT_ROUTER_BASEPATH || '';
+  // 获取 basePath - Vercel 部署时不需要
+  const basePath = ''; // process.env.__NEXT_ROUTER_BASEPATH || '';
 
   useEffect(() => {
     const initScene = async () => {
@@ -602,7 +602,7 @@ export default function ChristmasTree() {
       <div ref={containerRef} className="w-screen h-screen absolute top-0 left-0 z-[1]" />
 
       <div className="fixed top-0 left-0 w-full h-full z-10 pointer-events-none flex flex-col items-center pt-10">
-        <h1 className={`${cinzel.className} text-[#fceea7] text-[56px] m-0 font-normal tracking-[6px] opacity-90`}
+        <h1 className="text-[#fceea7] text-[56px] m-0 font-normal tracking-[6px] opacity-90"
             style={{
               textShadow: '0 0 50px rgba(252, 238, 167, 0.6)',
               background: 'linear-gradient(to bottom, #fff, #eebb66)',
