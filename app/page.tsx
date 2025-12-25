@@ -23,8 +23,8 @@ export default function ChristmasTree() {
   const [isLoading, setIsLoading] = useState(true);
   const [controlsHidden, setControlsHidden] = useState(false);
 
-  // 获取 basePath - Vercel 部署时不需要
-  const basePath = ''; // process.env.__NEXT_ROUTER_BASEPATH || '';
+  // 获取 basePath
+  const basePath = process.env.__NEXT_ROUTER_BASEPATH || '';
 
   useEffect(() => {
     const initScene = async () => {
